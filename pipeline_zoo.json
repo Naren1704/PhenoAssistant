@@ -20,5 +20,88 @@
             }
         },
         "output": "Dict[str, Any]"
+    },
+    "ara_crop_pipeline_2": {
+        "function_name": "ara_crop_pipeline_2",
+        "description": "Pipeline to compute phenotypes for Arabidopsis plant images, merge with metadata, and save results.\n\nArgs:\n    metadata_path (str): Path to the metadata JSON file.\n    output_dir (str): Directory path to save results.\n    pixel_to_cm (float): Scale to map pixel values to cm. Default is 0.03.\n\nReturns:\n    Dict[str, Any]: Status and path of the saved CSV file.",
+        "args": {
+            "metadata_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "pixel_to_cm": {
+                "type": "Annotated",
+                "description": "",
+                "default": 0.03
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_pipeline_3": {
+        "function_name": "ara_crop_pipeline_3",
+        "description": "Pipeline to compute phenotypes from Arabidopsis plant images and merge with metadata.\nReturns:\n    Dict[str, Any]: Status and path of the saved CSV file containing merged phenotypes and metadata.",
+        "args": {
+            "metadata_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/aracrop_metadata.json"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case1"
+            },
+            "pixel_to_cm": {
+                "type": "Annotated",
+                "description": "",
+                "default": 0.03
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_pipeline_4": {
+        "function_name": "ara_crop_pipeline_4",
+        "description": "Pipeline to compute phenotypes for Arabidopsis plant images and merge with metadata.\nReturns:\n    Dict[str, Any]: Status and path to the final merged CSV file.",
+        "args": {
+            "metadata_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/aracrop_metadata.json"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case1"
+            },
+            "pixel_to_cm": {
+                "type": "Annotated",
+                "description": "",
+                "default": 0.03
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_pipeline_5": {
+        "function_name": "ara_crop_pipeline_5",
+        "description": "Pipeline to compute phenotypes for Arabidopsis plant images, merge with metadata, and save results.\n\nArgs:\n    metadata_path (str): Path to the metadata JSON file.\n    output_dir (str): Directory to save results.\n\nReturns:\n    Dict[str, Any]: Status and path of the saved CSV file.",
+        "args": {
+            "metadata_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
     }
 }
