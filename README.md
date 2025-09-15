@@ -14,7 +14,8 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
 
 - **Evaluation's chat logs**  
   Chat logs and results for the evaluations presented in our manuscript are available in:  
-  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_tool_selection.ipynb)  
+  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_tool_selection.ipynb)
+  - **(New)**[eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_tool_selection_new.ipynb)
   - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_vision_model_selection.ipynb)  
   - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_data_analysis.ipynb)
     
