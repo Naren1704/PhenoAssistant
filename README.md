@@ -8,23 +8,27 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
 
 - **Case studies' chat logs**  
   Chat logs for the case studies presented in our manuscript are available in:  
-  - [case1.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case1.ipynb)  
-  - [case2.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case2.ipynb)  
-  - [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case3.ipynb)  
+  - [case1.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1.ipynb)  
+  - [case2.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case2.ipynb)  
+  - [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb)  
+
+- **New** Pipeline reproduction experiments: 
 
 - **Evaluation's chat logs**  
   Chat logs and results for the evaluations presented in our manuscript are available in:  
-  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_tool_selection.ipynb)
-  - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_vision_model_selection.ipynb)  
-  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_data_analysis.ipynb)
+  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection.ipynb)
+  - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection.ipynb)  
+  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis.ipynb)
   - **(New)** [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
-    
+  - **(New)** [eval_tool_selection_critic.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_critic.ipynb): using an LLM-based evaluator to evaluate tool selection with a critic on 20 tasks
+  - **(New)** [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks
+  - **(New)** [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks 
 ---
 
 ## Key components of PhenoAssistant
 
-- Implementation of agents is available at [agents.py](https://github.com/fengchen025/PhenoAssistant/blob/main/agents.py)
-- Implementation of tools is available at [functions](https://github.com/fengchen025/PhenoAssistant/tree/main/functions)
+- Implementation of agents is available at [agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/agents.py)
+- Implementation of tools is available at [functions](https://github.com/fengchen025/PhenoAssistant/tree/v2/functions)
 
 ---
 
@@ -44,8 +48,8 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
    - `mkdir -p ./models`
    - `pip install git+https://github.com/facebookresearch/segment-anything.git`
    - `wget -O ./models/sam_vit_h_4b8939.pth https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth`
-6. Set up [.env.yaml](https://github.com/fengchen025/PhenoAssistant/blob/main/.env.yaml) with your API key. See comments inside the file for guidance.
-7. Run the demo at [demo.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/demo.ipynb). Depending on your machine, it may take ~15 minutes to complete. Example outputs are shown in the notebook and saved at [./results/demo](https://github.com/fengchen025/PhenoAssistant/tree/main/results/demo).
+6. Set up [.env.yaml](https://github.com/fengchen025/PhenoAssistant/blob/v2/.env.yaml) with your API key. See comments inside the file for guidance.
+7. Run the demo at [demo.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/demo.ipynb). Depending on your machine, it may take ~15 minutes to complete. Example outputs are shown in the notebook and saved at [./results/demo](https://github.com/fengchen025/PhenoAssistant/tree/v2/results/demo).
 
 ---
 
