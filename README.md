@@ -56,7 +56,24 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
 Note: All case studies, evaluations, and demo results were generated using GPT-4o (version: 2024-08-06) via Azure OpenAI. Using a different model or provider may lead to different results.
 
 ---
-## (New) Adding external tools and agents
-To add new tools to PhenoAssistant, please refer to the example at [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can copy & paste already defined tools or define your own tools at this, using the pheno_tool decorator. Similarly, you can add an agent to [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
+## 🆕 Adding External Tools and Agents
 
-(By default, this function is turned off) If you want to connect PhenoAssistant with HuggingFace Inference API, you should first supply your HF_TOKEN at [.env.yaml](https://github.com/fengchen025/PhenoAssistant/blob/v2/.env.yaml), and then comment out from Line 15 onward. Now you can prompt PhenoAssistant to call a vision model supporting the API to process your images by supply the model identifier. However, it is your responsibility to understand the input and output format of the model to avoid unexpected results and abusing your OpenAI API usage. It is also your responsibility to control your huggingface api token usage.
+To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py).  
+You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
+
+Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
+---
+
+### HuggingFace Inference API
+
+*(This feature is disabled by default.)*  
+
+If you want to connect PhenoAssistant to the HuggingFace Inference API:  
+1. Uncomment the code starting from **Line 15** in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py)
+2. Provide your `HF_TOKEN` in [.env.yaml](https://github.com/fengchen025/PhenoAssistant/blob/v2/.env.yaml).  
+
+After enabling, you can prompt PhenoAssistant to call a vision model via HuggingFace Inference API by supplying its model identifier.  
+
+⚠️ **Note:**  
+- You are responsible for understanding the model’s input/output format to avoid errors or unexpected results.  
+- You are also responsible for monitoring and controlling your HuggingFace API token usage (as well as your OpenAI API usage).
