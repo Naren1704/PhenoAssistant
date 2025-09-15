@@ -6,7 +6,7 @@ from autogen import register_function
 
 from pandasai import Agent, SmartDataframe
 from pandasai.skills import skill
-from pandasai.llm import AzureOpenAI, OpenAI
+from pandasai.llm import AzureOpenAI
 
 from huggingface_hub import login
 
@@ -41,40 +41,24 @@ from functions.generic_tools import (
 )
 
 set_env_vars("./.env.yaml")
-if os.environ['HF_TOKEN'] == 'None':
-    print('HuggingFace token is not set. Some functions may not work properly.')
-else:
-    login(token=os.environ['HF_TOKEN'])
+login(token=os.environ['HF_TOKEN'])
 WORK_DIR = "./"
 MODEL_ZOO_PATH = "./model_zoo.json"
 
 # LLM configs
-if os.environ['API_TYPE'] == "azure":
-    config_list = [
-    {
-        "model": os.environ['MODEL_NAME'],
-        "base_url": os.environ['AZURE_API_URL'],
-        "api_version": os.environ['AZURE_API_VERSION'],
-        "temperature": 0.1,
-        "cache_seed": 42,
-        "timeout": 540000,
-        "api_type": "azure",
-        "api_key": os.environ['OPENAI_API_KEY'],
-    }
-    ]
-elif os.environ['API_TYPE'] == "openai":
-    config_list = [
-    {
-        "model": os.environ['MODEL_NAME'],
-        "temperature": 0.1,
-        "cache_seed": 42,
-        "timeout": 540000,
-        "api_type": "openai",
-        "api_key": os.environ['OPENAI_API_KEY'],
-    }
-    ]
-else:
-    raise ValueError("API_TYPE must be either 'azure' or 'openai'.")
+config_list = [
+  {
+    "model": os.environ['MODEL_NAME'],
+    # "model": "gpt-4o",
+    "base_url": os.environ['AZURE_API_URL'],
+    "api_version": os.environ['AZURE_API_VERSION'],
+    "temperature": 0.1,
+    "cache_seed": 42,
+    "timeout": 540000,
+    "api_type": "azure",
+    "api_key": os.environ['OPENAI_API_KEY'],
+  }
+]
 
 gpt_config = {
     "config_list": config_list,
@@ -250,20 +234,12 @@ def analyse_plot(message: Annotated[str, "The request of analysing a plot. e.g. 
     return res.chat_history[-1]['content']
 
 # table analyser
-if os.environ['API_TYPE'] == "azure":
-    pdsllm = AzureOpenAI(
-        api_token=os.environ['OPENAI_API_KEY'],
-        azure_endpoint=os.environ['AZURE_API_URL'],
-        api_version=os.environ['AZURE_API_VERSION'],
-        deployment_name=os.environ['MODEL_NAME'],
-    )
-elif os.environ['API_TYPE'] == "openai":
-    pdsllm = OpenAI(
-        api_token=os.environ['OPENAI_API_KEY'],
-        model=os.environ['MODEL_NAME'],
-    )
-else:
-    raise ValueError("API_TYPE must be either 'azure' or 'openai'.")
+pdsllm = AzureOpenAI(
+    api_token=os.environ['OPENAI_API_KEY'],
+    azure_endpoint=os.environ['AZURE_API_URL'],
+    api_version=os.environ['AZURE_API_VERSION'],
+    deployment_name=os.environ['MODEL_NAME'],
+)
 
 @skill
 def save_csv(df: pd.DataFrame,
@@ -284,9 +260,7 @@ def compute_csv(
         ) -> str:
     df = pd.read_csv(file_path)
     # GPT setting
-    agent_config = {"llm": pdsllm,
-                    "custom_whitelisted_dependencies": ["scikit-learn", "scipy"],
-                    }
+    agent_config = {"llm": pdsllm,}
     agent = Agent(df, config=agent_config,)
     # # Bamboo seeting
     # agent = Agent(df)
@@ -319,49 +293,48 @@ def query_csv(message: Annotated[str, "Asking questions to a CSV file. Example: 
     #     res = float(res)
     return str(res)
 
-if os.environ['HF_TOKEN'] != 'None':
-    # RAG agent
-    retrieve_config = {
-        "task": "qa", # default (basically qa + code), qa, or code
-        "docs_path": ['./papers/phenotiki.pdf'],
-        # "vector_db": "qdrant", # defualt is chroma
-        "chunk_token_size": 2000,
-        "collection_name": "knowledge_base", # default name is autogen-docs
-        "get_or_create": True,
-        "embedding_model": "all-mpnet-base-v2",  # we can also use openai's models here by defining an `embedding_function`
-        "must_break_at_empty_line": True,
-        "model": gpt_config['config_list'][0]["model"],
-    }
+# RAG agent
+retrieve_config = {
+    "task": "qa", # default (basically qa + code), qa, or code
+    "docs_path": ['./papers/phenotiki.pdf'],
+    # "vector_db": "qdrant", # defualt is chroma
+    "chunk_token_size": 2000,
+    "collection_name": "knowledge_base", # default name is autogen-docs
+    "get_or_create": True,
+    "embedding_model": "all-mpnet-base-v2",  # we can also use openai's models here by defining an `embedding_function`
+    "must_break_at_empty_line": True,
+    "model": gpt_config['config_list'][0]["model"],
+}
 
-    # retrieve info -> add info to prompts -> send to rag_assistant
-    rag_proxy = RetrieveUserProxyAgent(
-        name="rag_proxy",
-        # is_termination_msg=termination_msg,
-        human_input_mode="NEVER",
-        max_consecutive_auto_reply=3,
-        retrieve_config=retrieve_config,
-        code_execution_config=False,  # we don't want to execute code in this case.
-        # description="You are a proxy to retrieve knowledge from documents and augment your prompts.",
+# retrieve info -> add info to prompts -> send to rag_assistant
+rag_proxy = RetrieveUserProxyAgent(
+    name="rag_proxy",
+    # is_termination_msg=termination_msg,
+    human_input_mode="NEVER",
+    max_consecutive_auto_reply=3,
+    retrieve_config=retrieve_config,
+    code_execution_config=False,  # we don't want to execute code in this case.
+    # description="You are a proxy to retrieve knowledge from documents and augment your prompts.",
+)
+
+# regular llm assistant
+rag_assistant = RetrieveAssistantAgent(
+    name="rag_assistant",
+    system_message="You are a helpful assistant.",
+    llm_config=gpt_config,
+)
+
+def retrieval_augmented_generation(problem: Annotated[str, "The question that can be answered based on knowledge retrieved from external source."]) -> str:
+    '''
+    Retrieve knowledge from the Phenotiki paper to answer a question. Provide the question as precise as possible.
+    '''
+    res = rag_proxy.initiate_chat(
+        rag_assistant,
+        message = rag_proxy.message_generator,
+        problem = problem,
+        silent=True,
     )
-
-    # regular llm assistant
-    rag_assistant = RetrieveAssistantAgent(
-        name="rag_assistant",
-        system_message="You are a helpful assistant.",
-        llm_config=gpt_config,
-    )
-
-    def retrieval_augmented_generation(problem: Annotated[str, "The question that can be answered based on knowledge retrieved from external source."]) -> str:
-        '''
-        Retrieve knowledge from the Phenotiki paper to answer a question. Provide the question as precise as possible.
-        '''
-        res = rag_proxy.initiate_chat(
-            rag_assistant,
-            message = rag_proxy.message_generator,
-            problem = problem,
-            silent=True,
-        )
-        return res.summary
+    return res.summary
 
 # pipeline reproducer
 pipeline_summariser = autogen.AssistantAgent(
@@ -538,14 +511,13 @@ register_function(
     description="Plot data from a CSV file. Be sure to provide details of requirements and the path to save the plot.",
 )
 
-if os.environ['HF_TOKEN'] != 'None':
-    register_function(
-        retrieval_augmented_generation,
-        caller=manager,
-        executor=user_proxy,
-        name="RAG",
-        description="Retrieve knowledge from the Phenotiki paper. Use this only to retrieve information (e.g. asking questions starting with what/how/...). You need to reason the retrieved information to solve the task.",
-    )
+register_function(
+    retrieval_augmented_generation,
+    caller=manager,
+    executor=user_proxy,
+    name="RAG",
+    description="Retrieve knowledge from the Phenotiki paper. Use this only to retrieve information (e.g. asking questions starting with what/how/...). You need to reason the retrieved information to solve the task.",
+)
 
 # Model finetuning function
 register_function(
@@ -595,3 +567,18 @@ register_function(
     name="make_dir",
     description="Check if a directory exists, and create it if it does not. Call it whenever you need to save files to a directory.",
 )
+
+# adding new tools starts
+try:
+    import warnings
+    from utils.registry import auto_discover_tools, register_all_tools
+    auto_discover_tools()
+    register_all_tools(manager, user_proxy)
+    warnings.warn("[PhenoAssistant] User tools auto-registered from ./functions", RuntimeWarning)
+except Exception as _e:
+    warnings.warn(f"[PhenoAssistant] Skipped tool auto-registration: {_e}", RuntimeWarning)
+
+print("PhenoAssistant's available tools:")
+for i, tool in enumerate(manager.llm_config["tools"]):
+    print(f"Tool {i+1}: Name: {tool['function']['name']}, Description: {tool['function']['description']}")
+# adding new tools ends
