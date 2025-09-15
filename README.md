@@ -54,3 +54,7 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
 ---
 
 Note: All case studies, evaluations, and demo results were generated using GPT-4o (version: 2024-08-06) via Azure OpenAI. Using a different model or provider may lead to different results.
+
+---
+**(New)** Adding customised tools and agents
+**(New)** Connect with HuggingFace Inference API
