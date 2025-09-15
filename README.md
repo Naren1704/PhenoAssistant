@@ -56,12 +56,10 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
 Note: All case studies, evaluations, and demo results were generated using GPT-4o (version: 2024-08-06) via Azure OpenAI. Using a different model or provider may lead to different results.
 
 ---
-## 🆕 Adding External Tools and Agents
+## (Mew) Adding External Tools and Agents
 
-To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py).  
-You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
-
-Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
+- To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
+- Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
 ---
 
 ### HuggingFace Inference API
