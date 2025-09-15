@@ -57,7 +57,6 @@ Note: All case studies, evaluations, and demo results were generated using GPT-4
 
 ---
 ## (New) Adding external tools and agents
-To add customised tools and agents, please refer to xx.
+To add new tools to PhenoAssistant, please refer to the example at [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can copy & paste already defined tools or define your own tools at this, using the pheno_tool decorator. Similarly, you can add an agent to [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
 
-**(New)** Adding customised tools and agents
-**(New)** Connect with HuggingFace Inference API
+(By default, this function is turned off) If you want to connect PhenoAssistant with HuggingFace Inference API, you should first supply your HF_TOKEN at [.env.yaml](https://github.com/fengchen025/PhenoAssistant/blob/v2/.env.yaml), and then comment out from Line 15 onward. Now you can prompt PhenoAssistant to call a vision model supporting the API to process your images by supply the model identifier. However, it is your responsibility to understand the input and output format of the model to avoid unexpected results and abusing your OpenAI API usage. It is also your responsibility to control your huggingface api token usage.
