@@ -56,14 +56,12 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
 Note: All case studies, evaluations, and demo results were generated using GPT-4o (version: 2024-08-06) via Azure OpenAI. Using a different model or provider may lead to different results.
 
 ---
-## (Mew) Adding External Tools and Agents
+## (New) Adding External Tools and Agents
 
 - To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
 - Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
 ---
-
-### HuggingFace Inference API
-
+## (New) HuggingFace Inference API
 *(This feature is disabled by default.)*  
 
 If you want to connect PhenoAssistant to the HuggingFace Inference API:  
@@ -72,6 +70,6 @@ If you want to connect PhenoAssistant to the HuggingFace Inference API:
 
 After enabling, you can prompt PhenoAssistant to call a vision model via HuggingFace Inference API by supplying its model identifier.  
 
-⚠️ **Note:**  
-- You are responsible for understanding the model’s input/output format to avoid errors or unexpected results.  
-- You are also responsible for monitoring and controlling your HuggingFace API token usage (as well as your OpenAI API usage).
+⚠️ **Note:** 
+- Please make sure you understand the model’s input/output format to minimise the risk of errors or unexpected results.  
+- We recommend monitoring and controlling your HuggingFace API and OpenAI API usage to avoid unnecessary costs or overuse.
