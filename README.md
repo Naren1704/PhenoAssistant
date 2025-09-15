@@ -8,16 +8,16 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
 
 - **Case studies' chat logs**  
   Chat logs for the case studies presented in our manuscript are available in:  
-  - [case1.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/case1.ipynb)  
-  - [case2.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/case2.ipynb)  
-  - [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/case3.ipynb)  
+  - [case1.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case1.ipynb)  
+  - [case2.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case2.ipynb)  
+  - [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/case3.ipynb)  
 
 - **Evaluation's chat logs**  
   Chat logs and results for the evaluations presented in our manuscript are available in:  
-  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_tool_selection.ipynb)
-  - **(New)**[eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_tool_selection_new.ipynb)
-  - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_vision_model_selection.ipynb)  
-  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/main/eval_data_analysis.ipynb)
+  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_tool_selection.ipynb)
+  - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_vision_model_selection.ipynb)  
+  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v1/eval_data_analysis.ipynb)
+  - **(New)** [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
     
 ---
 
