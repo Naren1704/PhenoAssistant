@@ -22,7 +22,7 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
   - **(✨New)** [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks
   - **(✨New)** [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks 
 
-- ✨**(New)** Pipeline reproduction experiments: [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb) 
+- **(✨New)** Pipeline reproduction experiments: [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb) 
 ---
 
 ## Key components of PhenoAssistant
