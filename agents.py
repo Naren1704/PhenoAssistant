@@ -568,7 +568,7 @@ register_function(
     description="Check if a directory exists, and create it if it does not. Call it whenever you need to save files to a directory.",
 )
 
-# adding new tools starts
+## adding new tools starts
 try:
     import warnings
     from utils.registry import auto_discover_tools, register_all_tools
@@ -581,4 +581,4 @@ except Exception as _e:
 print("PhenoAssistant's available tools:")
 for i, tool in enumerate(manager.llm_config["tools"]):
     print(f"Tool {i+1}: Name: {tool['function']['name']}, Description: {tool['function']['description']}")
-# adding new tools ends
+## adding new tools ends
