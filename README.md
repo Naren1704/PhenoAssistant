@@ -4,12 +4,15 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
 
 PhenoAssistant is a multi-agent AI system designed to simplify and automate complex plant phenotyping workflows through natural language interaction. It integrates a central manager LLM agent with a specialised toolkit that combines deterministic modules (e.g., an extendable vision model zoo) and other LLM agents with specific roles (e.g., coding and data visualisation). Together, these components enable phenotype extraction and the subsequent data analysis tasks including statistical testing, plot creating and pipeline reproducing, allowing users to conduct image-based plant phenotyping with less technical effort.
 
-<p align="center">
+<!-- <p align="center">
   <img src="assets/figures/design.png" alt="Design" height=300>
   <img src="assets/figures/case1.png" alt="Case1" height=300>
   <br>
   <em>Left: Design of PhenoAssistant. Right: Example Tasks (Case Study 1).</em>
-</p>
+</p> -->
+
+![PhenoAssistant](assets/figures/design_case1_case2.png)
+*Figure 1. Overview of the PhenoAssistant workflow.*
 
 ---
 
