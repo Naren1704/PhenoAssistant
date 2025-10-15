@@ -6,9 +6,9 @@ PhenoAssistant is a multi-agent AI system designed to simplify and automate comp
 
 <p align="center">
   <img src="assets/figures/design.png" alt="Design" height=300>
-  <img src="assets/figures/case1.png" alt="Case1" height=300>
+  <img src="assets/figures/case1.png" alt="Case1" height=400>
   <br>
-  <em>Figure 1. (Left) PhenoAssistant workflow. (Right) Example analysis results.</em>
+  <em>Left: Design of PhenoAssistant. Right: Example Tasks (Case Study 1).</em>
 </p>
 
 ---
