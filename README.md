@@ -71,7 +71,7 @@ Note: All case studies, evaluations, and demo results were generated using GPT-4
 
 - To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
 - Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
-- You can also prompt PhenoAssistant to train new computer vision models on your own data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
+- You can also prompt PhenoAssistant to train new computer vision models on your own annotated data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
 ---
 ## (✨New) HuggingFace Inference API
 *(This feature is disabled by default.)*  
