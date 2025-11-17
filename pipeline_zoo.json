@@ -103,5 +103,335 @@
             }
         },
         "output": "Dict[str, Any]"
+    },
+    "ara_crop_plot": {
+        "function_name": "ara_crop_plot",
+        "description": "Pipeline to compute and plot the mean and standard deviation of phenotypes for each ecotype over time.\nThe phenotypes include leaf count, projected leaf area (PLA), plant diameter, and plant perimeter.\nEach plot is saved in the specified output directory with appropriate titles, labels, and legends.\n\nArgs:\n    data_path (str): Path to the input CSV file containing phenotype data.\n    output_dir (str): Directory path to save the plots.\n\nReturns:\n    Dict[str, str]: A dictionary containing the paths to the saved plots.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_plot_2": {
+        "function_name": "ara_crop_plot_2",
+        "description": "Pipeline to compute and plot the mean and standard deviation of phenotypes (leaf count, projected leaf area, plant diameter, plant perimeter) for each ecotype on every day after sowing.\nReturns:\n    Dict[str, Any]: A dictionary containing the status and paths of the saved plots.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_plot_3": {
+        "function_name": "ara_crop_plot_3",
+        "description": "Pipeline to compute and plot the mean and standard deviation of phenotypes [leaf count, projected leaf area (PLA), plant diameter, plant perimeter]\nfor each ecotype on every day after sowing. Saves one plot for each phenotype in the specified directory.\n\nArgs:\n    data_path (str): Path to the input CSV file containing phenotype data.\n    output_dir (str): Directory path to save the plots.\n\nReturns:\n    Dict[str, str]: A dictionary with keys as phenotype names and values as paths to the saved plots.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_plot_4": {
+        "function_name": "ara_crop_plot_4",
+        "description": "Pipeline to compute and plot the mean and standard deviation of phenotypes for each ecotype over time.\nReturns:\n    Dict[str, str]: Paths to the saved plots for each phenotype.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_plot_5": {
+        "function_name": "ara_crop_plot_5",
+        "description": "Pipeline to compute and plot the mean and standard deviation of phenotypes for each ecotype over time.\nReturns:\n    Dict[str, Any]: A dictionary containing the status and paths of the saved plots.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "potato_crop_pipeline_1": {
+        "function_name": "potato_crop_pipeline_1",
+        "description": "Pipeline to compute the projected leaf area (PLA) for potato plant images, merge with metadata, and save the results.\nReturns:\n    Dict[str, Any]: Status and path to the output file containing merged data.",
+        "args": {
+            "metadata_file_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/potato_metadata.csv"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case2_Task1_wlog"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "potato_crop_pipeline_2": {
+        "function_name": "potato_crop_pipeline_2",
+        "description": "Pipeline to compute the projected leaf area (PLA) for potato plant images, merge with metadata, and save the results.\nReturns:\n    Dict[str, Any]: A dictionary containing the status and path to the output file.",
+        "args": {
+            "metadata_file_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/potato_metadata.csv"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case2_Task1_wlog"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "potato_crop_pipeline_3": {
+        "function_name": "potato_crop_pipeline_3",
+        "description": "Pipeline to compute the projected leaf area (PLA) for potato plant images, merge with metadata, and save the results.\nArgs:\n    metadata_file_path (str): Path to the metadata CSV file containing potato plant records.\n    output_dir (str): Directory path to save results.\nReturns:\n    Dict[str, str]: A dictionary containing the path to the final merged CSV file.",
+        "args": {
+            "metadata_file_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/potato_metadata.csv"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case2_Task1_wlog"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "potato_crop_pipeline_4": {
+        "function_name": "potato_crop_pipeline_4",
+        "description": "Pipeline to compute the projected leaf area (PLA) for potato plant images and merge it with metadata.\nReturns:\n    Dict[str, Any]: Contains the status of the pipeline execution and the path to the output CSV file.",
+        "args": {
+            "metadata_file_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/potato_metadata.csv"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case2_Task1_wlog"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "potato_crop_pipeline_5": {
+        "function_name": "potato_crop_pipeline_5",
+        "description": "Pipeline to compute the projected leaf area (PLA) for potato plant images, merge it with metadata, and save the results.\nReturns:\n    Dict[str, Any]: A dictionary containing the status and path to the saved CSV file with combined data.",
+        "args": {
+            "metadata_file_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./data/potato_metadata.csv"
+            },
+            "output_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case2_Task1_wlog"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_stat": {
+        "function_name": "ara_crop_stat",
+        "description": "Pipeline to perform statistical analysis on plant phenotypes data.\nThis pipeline executes a mixed-design repeated-measures ANOVA followed by a Tukey-Kramer post-hoc test.\nResults are saved to specified directory.\n\nArgs:\n    data_path (str): Path to the input CSV file containing plant phenotypes.\n    descriptor (str): The name of the descriptor column to analyse. Default is 'projected_leaf_area'.\n    within_subject_factor (str): The name of the within-subjects factor. Default is 'days_after_sowing'.\n    between_subject_factor (str): The name of the between-subjects factor. Default is 'ecotype'.\n    subject_id (str): The name of the subject identifier. Default is 'plant_id'.\n    save_dir (str): Directory path to save results. Default is './results/Case1_Task4_wlog/'.\n\nReturns:\n    Dict[str, str]: Dictionary containing paths to saved ANOVA and Tukey-Kramer test results.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "descriptor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "projected_leaf_area"
+            },
+            "within_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "days_after_sowing"
+            },
+            "between_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "ecotype"
+            },
+            "subject_id": {
+                "type": "Annotated",
+                "description": "",
+                "default": "plant_id"
+            },
+            "save_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case1_Task4_wlog/"
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_stat_2": {
+        "function_name": "ara_crop_stat_2",
+        "description": "Pipeline to perform statistical analysis on plant phenotypes data.\nIt conducts a mixed-design repeated-measures ANOVA followed by a Tukey-Kramer post-hoc test.\nResults are saved to specified directory.\n\nArgs:\n    data_path (str): Path to the input CSV file containing plant phenotypes.\n    descriptor (str): The name of the descriptor column to analyse.\n    within_subject_factor (str): The name of the within-subjects factor.\n    between_subject_factor (str): The name of the between-subjects factor.\n    subject_id (str): The name of the subject identifier.\n    save_dir (str): Directory path to save the results.\n\nReturns:\n    Dict[str, str]: A dictionary containing paths to the saved ANOVA and Tukey-Kramer test results.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "descriptor": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "within_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "between_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "subject_id": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "save_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_stat_3": {
+        "function_name": "ara_crop_stat_3",
+        "description": "Pipeline to perform statistical analysis on plant phenotypes data.\nIt conducts a mixed-design repeated-measures ANOVA followed by a Tukey-Kramer post-hoc test.\nReturns:\n    Dict[str, str]: Paths to the saved results of ANOVA and Tukey-Kramer tests.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "anova_save_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "tukey_save_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_stat_4": {
+        "function_name": "ara_crop_stat_4",
+        "description": "Pipeline to perform statistical analysis on plant phenotypes data.\nThis pipeline performs a mixed-design repeated-measures ANOVA followed by a Tukey-Kramer post-hoc test.\nIt saves the results to specified CSV files.\n\nArgs:\n    data_path (str): Path to the input CSV file containing phenotypes data.\n    anova_save_path (str): Path to save the ANOVA results CSV.\n    tukey_save_path (str): Path to save the Tukey-Kramer results CSV.\n    dir_path (str): Directory path to save results.\n\nReturns:\n    Dict[str, str]: A dictionary containing the status of the saved results.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "anova_save_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "tukey_save_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            },
+            "dir_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": null
+            }
+        },
+        "output": "Dict[str, Any]"
+    },
+    "ara_crop_stat_5": {
+        "function_name": "ara_crop_stat_5",
+        "description": "Pipeline to perform mixed-design repeated-measures ANOVA and Tukey-Kramer post-hoc test on plant phenotypes data.\nReturns:\n    Dict[str, str]: Paths to the saved ANOVA and Tukey-Kramer test results.",
+        "args": {
+            "data_path": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case1/aracrop_phenotypes.csv"
+            },
+            "descriptor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "projected_leaf_area"
+            },
+            "within_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "days_after_sowing"
+            },
+            "between_subject_factor": {
+                "type": "Annotated",
+                "description": "",
+                "default": "ecotype"
+            },
+            "subject_id": {
+                "type": "Annotated",
+                "description": "",
+                "default": "plant_id"
+            },
+            "save_dir": {
+                "type": "Annotated",
+                "description": "",
+                "default": "./results/Case1_Task4_wlog/"
+            }
+        },
+        "output": "Dict[str, Any]"
     }
 }
