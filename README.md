@@ -28,12 +28,12 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
   - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection.ipynb)
   - [eval_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection.ipynb)  
   - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis.ipynb)
-  - **(✨New)** [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
-  - **(✨New)** [eval_tool_selection_critic.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_critic.ipynb): using an LLM-based evaluator to evaluate tool selection with a Critic agent on 20 tasks
-  - **(✨New)** [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks
-  - **(✨New)** [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks 
+  - [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
+  - [eval_tool_selection_critic.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_critic.ipynb): using an LLM-based evaluator to evaluate tool selection with a Critic agent on 20 tasks
+  - [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks
+  - [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks 
 
-- **(✨New)** Pipeline reproduction experiments: [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb) 
+- Pipeline reproduction experiments: [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb) 
 ---
 
 ## Key components of PhenoAssistant
@@ -67,13 +67,13 @@ To play with a demo, make sure you have **GPU** (to infer deep learning models) 
 Note: All case studies, evaluations, and demo results were generated using GPT-4o (version: 2024-08-06) via Azure OpenAI. Using a different model or provider may lead to different results.
 
 ---
-## (✨New) Adding External Tools and Agents
+## Adding External Tools and Agents
 
 - To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
 - Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
-- You can also prompt PhenoAssistant to train new computer vision models on your own annotated data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
+- (✨New) You can also prompt PhenoAssistant to train new computer vision models on your own annotated data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
 ---
-## (✨New) HuggingFace Inference API
+## HuggingFace Inference API
 *(This feature is disabled by default.)*  
 
 If you want to connect PhenoAssistant to the HuggingFace Inference API:  
