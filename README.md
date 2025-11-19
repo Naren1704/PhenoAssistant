@@ -31,9 +31,14 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
   - [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
   - [eval_tool_selection_critic.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_critic.ipynb): using an LLM-based evaluator to evaluate tool selection with a Critic agent on 20 tasks
   - [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks (Vision Model Selection I)
-  - [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks 
+  - [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks
+  - **(✨New)** [eval_granular_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_granular_vision_model_selection.ipynb): evaluation on selecting specific vision models for different plant phenotyping tasks (Vision Model Selection II) 
 
-- Pipeline reproduction experiments: [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb) 
+- Pipeline reproduction experiments:
+  - [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb)
+  - **(✨New)** [case1_task2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task2_pipe.ipynb)
+  - **(✨New)** [case1_task4_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task4_pipe.ipynb)
+  - **(✨New)** [case2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case2_pipe.ipynb) 
 ---
 
 ## Key components of PhenoAssistant
