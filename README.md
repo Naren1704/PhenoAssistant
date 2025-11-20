@@ -11,7 +11,7 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
   <em>Left: Design of PhenoAssistant. Right: Example Tasks (Case Study 1).</em>
 </p> -->
 
-![PhenoAssistant](assets/figures/design_case1_case2_new.png)
+![PhenoAssistant](assets/figures/design_case1_case2_whiteback.png)
 
 ---
 
