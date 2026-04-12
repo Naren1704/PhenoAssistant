@@ -1,8 +1,8 @@
 # PhenoAssistant
 
-This is the official code repository for our paper [*"PhenoAssistant: A Conversational Multi-Agent AI System for Automated Plant Phenotyping"*](https://arxiv.org/abs/2504.19818).
+This is the official code repository for our paper [*A conversational multi-agent AI system for automated plant phenotyping*](https://www.nature.com/articles/s41467-026-71090-y) (Nature Communications 2026).
 
-**(✨New)** PhenoAssistant is a multi-agent AI system designed to streamline complex plant phenotyping workflows through natural language interaction. It integrates a central manager agent with a specialised toolkit that combines modules (e.g., an extendable vision model zoo) and other LLM agents with specific roles (e.g., coding and data visualisation). Together, these components enable phenotype extraction and the subsequent data analysis tasks including statistical testing, plot creating and pipeline reproducing, allowing users to conduct image-based plant phenotyping with less technical effort.
+PhenoAssistant is a multi-agent AI system designed to streamline complex plant phenotyping workflows through natural language interaction. It integrates a central manager agent with a specialised toolkit that combines modules (e.g., an extendable vision model zoo) and other LLM agents with specific roles (e.g., coding and data visualisation). Together, these components enable phenotype extraction and the subsequent data analysis tasks including statistical testing, plot creating and pipeline reproducing, allowing users to conduct image-based plant phenotyping with less technical effort.
 
 <!-- <p align="center">
   <img src="assets/figures/design.png" alt="Design" height=300>
@@ -25,20 +25,18 @@ This is the official code repository for our paper [*"PhenoAssistant: A Conversa
 
 - **Evaluation's chat logs**  
   Chat logs and results for the evaluations presented in our manuscript are available in:  
-  - [eval_tool_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection.ipynb)
-  - [~~eval_vision_model_selection.ipynb~~](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection.ipynb)  
-  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis.ipynb)
   - [eval_tool_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_new.ipynb): using an LLM-based evaluator to evaluate tool selection on 20 tasks
   - [eval_tool_selection_critic.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_tool_selection_critic.ipynb): using an LLM-based evaluator to evaluate tool selection with a Critic agent on 20 tasks
   - [eval_vision_model_selection_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_vision_model_selection_new.ipynb): evaluation on refined vision model selection tasks (Vision Model Selection I)
+  - [eval_granular_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_granular_vision_model_selection.ipynb): evaluation on selecting specific vision models for different plant phenotyping tasks (Vision Model Selection II) 
+  - [eval_data_analysis.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis.ipynb)
   - [eval_data_analysis_new.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_data_analysis_new.ipynb): evaluation on 10 more data analysis tasks
-  - **(✨New)** [eval_granular_vision_model_selection.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/eval_granular_vision_model_selection.ipynb): evaluation on selecting specific vision models for different plant phenotyping tasks (Vision Model Selection II) 
 
 - Pipeline reproduction experiments:
   - [case1_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_pipe.ipynb)
-  - **(✨New)** [case1_task2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task2_pipe.ipynb)
-  - **(✨New)** [case1_task4_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task4_pipe.ipynb)
-  - **(✨New)** [case2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case2_pipe.ipynb) 
+  - [case1_task2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task2_pipe.ipynb)
+  - [case1_task4_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case1_task4_pipe.ipynb)
+  - [case2_pipe.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case2_pipe.ipynb) 
 ---
 
 ## Key components of PhenoAssistant
@@ -76,7 +74,7 @@ Note: All case studies, evaluations, and demo results were generated using GPT-4
 
 - To add new tools to PhenoAssistant, see the example in [new_tools.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_tools.py). You can either copy & modify existing tools or define your own using the `@pheno_tool` decorator in this file.  
 - Similarly, you can add new agents in [new_agents.py](https://github.com/fengchen025/PhenoAssistant/blob/v2/functions/new_agents.py).
-- **(✨New)** You can also prompt PhenoAssistant to train new computer vision models on your own annotated data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
+- You can also prompt PhenoAssistant to train new computer vision models on your own annotated data. Please refer to [case3.ipynb](https://github.com/fengchen025/PhenoAssistant/blob/v2/case3.ipynb) for an example. PhenoAssistant supports both LoRA and full fine-tuning approaches. Be sure to check your GPU configuration and choose the method that best matches your computational resources and needs.
 ---
 ## HuggingFace Inference API
 *(This feature is disabled by default.)*  
