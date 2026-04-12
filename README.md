@@ -1,6 +1,6 @@
 # PhenoAssistant
 
-This is the official code repository for [**A conversational multi-agent AI system for automated plant phenotyping**](https://www.nature.com/articles/s41467-026-71090-y) (**Nature Communications**, 2026).
+This is the official code repository for [**A conversational multi-agent AI system for automated plant phenotyping**](https://www.nature.com/articles/s41467-026-71090-y) (*Nature Communications*, 2026).
 
 PhenoAssistant is a multi-agent AI system designed to streamline complex plant phenotyping workflows through natural language interaction. It integrates a central manager agent with a specialised toolkit that combines modules (e.g., an extendable vision model zoo) and other LLM agents with specific roles (e.g., coding and data visualisation). Together, these components enable phenotype extraction and the subsequent data analysis tasks including statistical testing, plot creating and pipeline reproducing, allowing users to conduct image-based plant phenotyping with less technical effort.
 
