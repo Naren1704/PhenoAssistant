@@ -21,7 +21,7 @@ from typing import Annotated, List, Optional, Union
 
 from functions.create_hf_dataset import prepare_dataset, get_dataset_format
 from functions.instance_segmentation import finetune_instance_segmentation, infer_instance_segmentation
-from functions.image_classification import finetune_image_classification, infer_image_classification
+from functions.image_classification import finetune_image_classification, infer_image_classification, infer_image_classification_dinov2
 from functions.image_regression import finetune_image_regression, infer_image_regression
 from functions.search import search_and_scrape
 from functions.compute_phenotypes import compute_phenotypes_from_ins_seg
@@ -462,6 +462,13 @@ register_function(
     executor=user_proxy,
     name="infer_image_regression",
     description="Perform image regression on plant images",
+)
+register_function(
+    infer_image_classification_dinov2,
+    caller=manager,
+    executor=user_proxy,
+    name="infer_image_classification_dinov2",
+    description="Perform nutrient deficiency classification on rice, wheat, or maize images using DINOv2 ViT-S/14 full fine-tuned models. Supports rice (4-class severity), wheat (5-class, UAV), and maize (6-class). Contributed by Narendren S V, IIT Bombay.",
 )
 
 register_function(
