@@ -468,7 +468,7 @@ register_function(
     caller=manager,
     executor=user_proxy,
     name="infer_image_classification_dinov2",
-    description="Perform nutrient deficiency classification on rice, wheat, or maize images using DINOv2 ViT-S/14 full fine-tuned models. Supports rice (4-class severity), wheat (5-class, UAV), and maize (6-class). Contributed by Narendren S V, IIT Bombay.",
+    description="Perform nutrient deficiency classification using DINOv2 ViT-S/14 full fine-tuned models contributed by Narendren S V (IIT Bombay). IMPORTANT - image requirements differ per crop: rice requires close-up RGB leaf images (4-class nitrogen deficiency severity: mild/moderate/severe/very_severe); wheat requires UAV top-down aerial field images ONLY and NOT close-up leaf images (5-class: healthy/nitrogen/phosphorus/potassium/severe deficiency); maize requires close-up RGB leaf or plant images (6-class: healthy/nitrogen/phosphorus/potassium/zinc/severe deficiency). Checkpoint format: Naren1704/{crop}_nutrient-deficiency_rgbdataset_dinov2_fullft",
 )
 
 register_function(
