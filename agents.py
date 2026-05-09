@@ -24,6 +24,10 @@ from functions.instance_segmentation import finetune_instance_segmentation, infe
 from functions.image_classification import finetune_image_classification, infer_image_classification, infer_image_classification_dinov2
 from functions.image_regression import finetune_image_regression, infer_image_regression
 from functions.search import search_and_scrape
+from functions.multimodal_models import (
+    infer_yolo_object_detection,
+    infer_temporal_crop_model,
+)
 from functions.compute_phenotypes import compute_phenotypes_from_ins_seg
 from functions.reproducible_pipeline import save_pipeline, load_chat_log, get_pipeline_zoo, get_pipeline_info, execute_pipeline
 from functions.stat_test import perform_anova, perform_tukey_test
