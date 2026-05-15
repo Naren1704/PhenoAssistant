@@ -158,6 +158,17 @@ def select_model(user_query: str, client=None, model_name: str = None):
 
     if model_id:
         print(f"[ModelSelector] Match: {key} -> {model_id}")
+        # ── Verification ──────────────────────────────────────────────────────
+        from utils.verifier import verify_model_selection
+        verdict = verify_model_selection(
+            user_query, model_id, crop, task, modality, client, model_name
+        )
+        if not verdict["accepted"]:
+            print(f"[ModelSelector] Verifier REJECTED — returning CLARIFY")
+            return (
+                f"CLARIFY: The model selection may be incorrect "
+                f"({verdict['reason']}). Could you clarify your task?"
+            )
     else:
         print(f"[ModelSelector] No match for {key}")
         print(f"[ModelSelector] Available: {list(LOOKUP.keys())}")
