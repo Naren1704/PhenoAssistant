@@ -114,6 +114,9 @@ class ToolSelectorIndex:
         print(f"[ToolSelector] Index ready. Shape: {self.embeddings.shape}")
 
     def get_top_k(self, query: str, k: int = 7) -> list:
+        from utils.ontology import expand_query, get_constraints
+        excluded = get_constraints(query)
+        query = expand_query(query)
         query_vec = self.encoder.encode([query], normalize_embeddings=True)
         semantic_scores = (self.embeddings @ query_vec.T).flatten()
 
@@ -136,13 +139,13 @@ class ToolSelectorIndex:
                 selected_names.add(name)
                 pinned.append(name)
 
-        # Top-k by hybrid score
+        # Top-k by hybrid score (respecting hard constraints)
         added = 0
         for idx in ranked_indices:
             if added >= k:
                 break
             name = self.tool_names[idx]
-            if name not in selected_names:
+            if name not in selected_names and name not in excluded:
                 result.append(self.tools[idx])
                 selected_names.add(name)
                 added += 1
