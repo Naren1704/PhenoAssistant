@@ -593,3 +593,35 @@ print("PhenoAssistant's available tools:")
 for i, tool in enumerate(manager.llm_config["tools"]):
     print(f"Tool {i+1}: Name: {tool['function']['name']}, Description: {tool['function']['description']}")
 ## adding new tools ends
+
+# ── Contribution 2: Model Selector Agent ─────────────────────────────────────
+from utils.model_selector import select_model as _select_model
+
+def get_best_model(user_query: str) -> str:
+    """
+    Select the single best vision model for a plant phenotyping task.
+    Uses a 3-question decision tree instead of showing all models at once.
+    Returns the exact model ID to pass to infer_* functions.
+    """
+    from openai import AzureOpenAI
+    client = AzureOpenAI(
+        api_key=os.environ["OPENAI_API_KEY"],
+        azure_endpoint=os.environ["AZURE_API_URL"],
+        api_version=os.environ["AZURE_API_VERSION"],
+    )
+    return _select_model(user_query, client, os.environ["MODEL_NAME"])
+
+register_function(
+    get_best_model,
+    caller=manager,
+    executor=user_proxy,
+    name="get_best_model",
+    description=(
+        "Select the single best vision model checkpoint for a plant phenotyping task. "
+        "Use this instead of get_model_zoo when the user wants to run inference. "
+        "Returns the exact model ID to pass to infer_instance_segmentation, "
+        "infer_image_classification, or infer_image_regression."
+    ),
+)
+
+print("[Contribution 2] get_best_model registered successfully.")
