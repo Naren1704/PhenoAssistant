@@ -625,3 +625,19 @@ register_function(
 )
 
 print("[Contribution 2] get_best_model registered successfully.")
+
+
+# ── Contribution 2: Tool Selector Agent ──────────────────────────────────────
+from utils.tool_selector import ToolSelectorIndex
+
+tool_index = ToolSelectorIndex(manager, model_name="all-mpnet-base-v2")
+
+def start_task(user_message: str, k: int = 7, **kwargs):
+    """
+    Use this instead of user_proxy.initiate_chat() in notebooks.
+    Filters the tool list to top-k before the manager sees it.
+    """
+    with tool_index.patch_manager(user_message, k=k):
+        return user_proxy.initiate_chat(manager, message=user_message, **kwargs)
+
+print("[Contribution 2] ToolSelectorIndex ready. Use start_task() in notebooks.")
